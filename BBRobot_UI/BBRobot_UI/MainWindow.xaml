@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BBRrobotUI"
         mc:Ignorable="d"
-        Title="BBRobot UI by Chao Li" Height="914.2" Width="905">
+        Title="BBRobot UI by Chao Li" Height="914.2" Width="905"
+        KeyDown="Window_KeyDown"
+        KeyUp="Window_KeyUp">
     <Grid HorizontalAlignment="Left" Width="895" Margin="0,0,0,-2" Height="791" VerticalAlignment="Top">
         <WebBrowser x:Name="BrowerFPV" Margin="0,0,0,278" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="895" Height="478" VerticalAlignment="Bottom"/>
         <Button x:Name="button_left" Content="Left" HorizontalAlignment="Left" Margin="34,618,0,0" VerticalAlignment="Top" Width="75" Height="66" 
@@ -39,11 +41,11 @@
         <Button x:Name="button_ptzdown" Content="PTZ DOWN" HorizontalAlignment="Left" Margin="419,689,0,0" VerticalAlignment="Top" Width="75" Height="66"
     		PreviewMouseLeftButtonDown="button_ptzdown_PreviewMouseLeftButtonDown"
     		PreviewMouseLeftButtonUp="button_ptzdown_PreviewMouseLeftButtonUp"/>
-        <ProgressBar HorizontalAlignment="Left" Height="22" Margin="637,836,0,-67" VerticalAlignment="Top" Width="196" RenderTransformOrigin="1.476,-0.841"/>
+        <ProgressBar HorizontalAlignment="Left" Height="22" Margin="635,790,0,-21" VerticalAlignment="Top" Width="196" RenderTransformOrigin="1.476,-0.841"/>
         <Label x:Name="label_motion" Content="Robot motion control" HorizontalAlignment="Left" Margin="83,516,0,0" VerticalAlignment="Top" Width="126"/>
         <Label x:Name="label_PTZ" Content="PTZ control" HorizontalAlignment="Left" Margin="419,518,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_ultrasound" Content="Front distance：" HorizontalAlignment="Left" Margin="632,746,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="2.45,2.231"/>
-        <TextBox x:Name="textbox_distance" HorizontalAlignment="Left" Height="23" Margin="637,772,0,-4" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="196"/>
+        <Label x:Name="label_ultrasound" Content="Front distance：" HorizontalAlignment="Left" Margin="261,684,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="2.45,2.231"/>
+        <TextBox x:Name="textbox_distance" HorizontalAlignment="Left" Height="40" Margin="224,715,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159"/>
         <TextBox x:Name="textbox_motion" HorizontalAlignment="Left" Height="23" Margin="699,630,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
         <TextBox x:Name="textbox_ptzangle" HorizontalAlignment="Left" Height="23" Margin="699,658,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
         <Label x:Name="label_motion_Copy" Content=" Direction" HorizontalAlignment="Left" Margin="632,627,0,0" VerticalAlignment="Top" Width="62"/>
@@ -58,19 +60,23 @@
         <Label x:Name="label_motion_Copy2" Content="Temperature" HorizontalAlignment="Left" Margin="616,689,0,0" VerticalAlignment="Top" Width="78"/>
         <TextBox x:Name="textbox_motion_Copy1" HorizontalAlignment="Left" Height="23" Margin="699,723,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
         <Label x:Name="label_motion_Copy3" Content=" Humidity" HorizontalAlignment="Left" Margin="632,720,0,0" VerticalAlignment="Top" Width="62"/>
-        <ToggleButton x:Name="button_laser" Content="Laser Shooting" HorizontalAlignment="Left" Margin="215,820,0,-69" VerticalAlignment="Top" Width="120" Height="40" Checked="button_laser_Checked" Unchecked="button_laser_Unchecked"/>
+        <ToggleButton x:Name="button_laser" Content="Laser Shooting" HorizontalAlignment="Left" Margin="215,820,0,-69" VerticalAlignment="Top" Width="120" Height="40"
+                      Checked="button_laser_Checked"
+                      Unchecked="button_laser_Unchecked"/>
         <ToggleButton x:Name="button_right_Copy1" Content="Autodrive" HorizontalAlignment="Left" Margin="28,820,0,-69" VerticalAlignment="Top" Width="115" Height="40"/>
         <Label x:Name="label_motion_Copy4" Content="OFF" HorizontalAlignment="Left" Margin="148,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
         <Label x:Name="label_laser" Content="OFF" HorizontalAlignment="Left" Margin="340,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
         <ToggleButton x:Name="button_right_Copy2" Content="Image processing" HorizontalAlignment="Left" Margin="407,820,0,-69" VerticalAlignment="Top" Width="120" Height="40"/>
         <Label x:Name="label_motion_Copy6" Content="OFF" HorizontalAlignment="Left" Margin="532,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
-        <Label x:Name="label_ultrasound_Copy" Content="Battery Life：" HorizontalAlignment="Left" Margin="637,805,0,-40" VerticalAlignment="Top" Width="81" RenderTransformOrigin="2.45,2.231"/>
-        <TextBox x:Name="textbox_TCPPORT_Copy" HorizontalAlignment="Left" Height="23" Margin="723,808,0,-40" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
-        <Label x:Name="label_ultrasound_Copy1" Content="%" HorizontalAlignment="Left" Margin="794,806,0,-40" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.45,2.231" Height="25"/>
+        <Label x:Name="label_ultrasound_Copy" Content="Battery Life：" HorizontalAlignment="Left" Margin="635,759,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="2.45,2.231"/>
+        <TextBox x:Name="textbox_TCPPORT_Copy" HorizontalAlignment="Left" Height="23" Margin="721,762,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+        <Label x:Name="label_ultrasound_Copy1" Content="%" HorizontalAlignment="Left" Margin="792,760,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.45,2.231" Height="25"/>
         <Label x:Name="label_ultrasound_Copy2" Content="%" HorizontalAlignment="Left" Margin="833,721,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.45,2.231" Height="25"/>
         <Label x:Name="label_ultrasound_Copy3" Content="℃" HorizontalAlignment="Left" Margin="833,690,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="2.45,2.231" Height="26"/>
-        <Label x:Name="label_ultrasound_Copy4" Content="cm" HorizontalAlignment="Left" Margin="833,770,0,-4" VerticalAlignment="Top" Width="36" RenderTransformOrigin="2.45,2.231" Height="25"/>
+        <Label x:Name="label_ultrasound_Copy4" Content="cm" HorizontalAlignment="Left" Margin="380,720,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="2.45,2.231" Height="25"/>
         <TextBox x:Name="textbox_TCP" HorizontalAlignment="Left" Height="25" Margin="794,544,0,0" TextWrapping="Wrap" Text="Disconnected" VerticalAlignment="Top" Width="80" Background="Red"/>
+        <ToggleButton x:Name="button_sensor" Content="Sensor" HorizontalAlignment="Left" Margin="637,820,0,-69" VerticalAlignment="Top" Width="86" Height="40" Checked="button_right_Copy_Checked" Unchecked="button_right_Copy_Unchecked"/>
+        <Label x:Name="label_sensor_onoff" Content="OFF" HorizontalAlignment="Left" Margin="730,823,0,-63" VerticalAlignment="Top" Width="77" Background="Red" Height="31"/>
 
     </Grid>
 </Window>

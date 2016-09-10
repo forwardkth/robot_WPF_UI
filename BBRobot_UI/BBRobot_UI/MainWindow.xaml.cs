@@ -134,6 +134,32 @@ namespace BBRrobotUI
                     Console.WriteLine("excep：{0}", ex.Message);
                 }
             }
+            else if (motion == 7)
+            {
+                data = Encoding.ASCII.GetBytes("7");
+                try
+                {
+                    client.Send(data, data.Length, 0);
+                    Console.WriteLine("7");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("excep：{0}", ex.Message);
+                }
+            }
+            else if (motion == 8)
+            {
+                data = Encoding.ASCII.GetBytes("8");
+                try
+                {
+                    client.Send(data, data.Length, 0);
+                    Console.WriteLine("8");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("excep：{0}", ex.Message);
+                }
+            }
             else if (motion == 11)
             {
                 data = Encoding.ASCII.GetBytes("l");
@@ -141,6 +167,45 @@ namespace BBRrobotUI
                 {
                     client.Send(data, data.Length, 0);
                     Console.WriteLine("l");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("excep：{0}", ex.Message);
+                }
+            }
+            else if (motion == 5)
+            {
+                data = Encoding.ASCII.GetBytes("5");
+                try
+                {
+                    client.Send(data, data.Length, 0);
+                    Console.WriteLine("5");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("excep：{0}", ex.Message);
+                }
+            }
+            else if (motion == 6)
+            {
+                data = Encoding.ASCII.GetBytes("6");
+                try
+                {
+                    client.Send(data, data.Length, 0);
+                    Console.WriteLine("6");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("excep：{0}", ex.Message);
+                }
+            }
+            else if (motion == 9)
+            {
+                data = Encoding.ASCII.GetBytes("9");
+                try
+                {
+                    client.Send(data, data.Length, 0);
+                    Console.WriteLine("9");
                 }
                 catch (Exception ex)
                 {
@@ -266,60 +331,88 @@ namespace BBRrobotUI
 /// <param name="e"></param>
         private void button_ptzreset_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            motion = 9;
+            AsynTCPConnect();
+            Thread sendthread = new Thread(new ThreadStart(TCPSend));
+            sendthread.Start();
             textbox_ptzangle.Text = "PTZ reset";
             textbox_ptzangle.Background = Brushes.LawnGreen;
         }
 
         private void button_ptzreset_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            textbox_ptzangle.Text = "Stop";
+            motion = 9;
+            AsynTCPConnect();
+            Thread sendthread = new Thread(new ThreadStart(TCPSend));
+            sendthread.Start();
+            textbox_ptzangle.Text = "PTZ reset";
             textbox_ptzangle.Background = Brushes.Red;
         }
 
         private void button_ptzleft_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            motion = 8;
+            AsynTCPConnect();
+            Thread sendthread = new Thread(new ThreadStart(TCPSend));
+            sendthread.Start();
             textbox_ptzangle.Text = "PTZ Left";
             textbox_ptzangle.Background = Brushes.LawnGreen;
         }
 
         private void button_ptzleft_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            motion = 12;
             textbox_ptzangle.Text = "Stop";
             textbox_ptzangle.Background = Brushes.Red;
         }
 
         private void button_ptzright_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            motion = 7;
+            AsynTCPConnect();
+            Thread sendthread = new Thread(new ThreadStart(TCPSend));
+            sendthread.Start();
             textbox_ptzangle.Text = "PTZ right";
             textbox_ptzangle.Background = Brushes.LawnGreen;
         }
 
         private void button_ptzright_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            motion = 12;
             textbox_ptzangle.Text = "Stop";
             textbox_ptzangle.Background = Brushes.Red;
         }
 
         private void button_ptzup_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            motion = 5;
+            AsynTCPConnect();
+            Thread sendthread = new Thread(new ThreadStart(TCPSend));
+            sendthread.Start();
             textbox_ptzangle.Text = "PTZ up";
             textbox_ptzangle.Background = Brushes.LawnGreen;
         }
 
         private void button_ptzup_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            motion = 12;
             textbox_ptzangle.Text = "Stop";
             textbox_ptzangle.Background = Brushes.Red;
         }
 
         private void button_ptzdown_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            motion = 6;
+            AsynTCPConnect();
+            Thread sendthread = new Thread(new ThreadStart(TCPSend));
+            sendthread.Start();
             textbox_ptzangle.Text = "PTZ down";
             textbox_ptzangle.Background = Brushes.LawnGreen;
         }
 
         private void button_ptzdown_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            motion = 12;
             textbox_ptzangle.Text = "Stop";
             textbox_ptzangle.Background = Brushes.Red;
         }
@@ -348,6 +441,143 @@ namespace BBRrobotUI
             sendthread.Start();
             label_laser.Content = "OFF";
             label_laser.Background = Brushes.Red;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.W)
+            {
+                motion = 1;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "Forward";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_forward.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.S)
+            {
+                motion = 2;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "Backward";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_backward.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.A)
+            {
+                motion = 3;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "Turn left";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_left.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.D)
+            {
+                motion = 4;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "Turn right";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_right.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.I)
+            {
+                motion = 5;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "PTZ UP";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_ptzup.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.K)
+            {
+                motion = 6;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "PTZ DOWN";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_ptzdown.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.J)
+            {
+                motion = 8;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "PTZ LEFT";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_ptzleft.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.L)
+            {
+                motion = 7;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "PTZ RIGHT";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_ptzright.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.Q)
+            {
+                motion = 0;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "Break";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_stop.Background = Brushes.LawnGreen;
+            }
+            else if (e.Key == Key.U)
+            {
+                motion = 9;
+                AsynTCPConnect();
+                Thread sendthread = new Thread(new ThreadStart(TCPSend));
+                sendthread.Start();
+                textbox_motion.Text = "Reset PTZ";
+                textbox_motion.Background = Brushes.LawnGreen;
+                button_ptzreset.Background = Brushes.LawnGreen;
+            }
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            motion = 0;
+            AsynTCPConnect();
+            Thread sendthread = new Thread(new ThreadStart(TCPSend));
+            sendthread.Start();
+            textbox_motion.Text = "Stop";
+            textbox_motion.Background = Brushes.Red;
+            button_stop.Background = Brushes.LightGray;
+            button_ptzreset.Background = Brushes.LightGray;
+            button_stop.Background = Brushes.LightGray;
+            button_ptzright.Background = Brushes.LightGray;
+            button_ptzleft.Background = Brushes.LightGray;
+            button_ptzup.Background = Brushes.LightGray;
+            button_ptzdown.Background = Brushes.LightGray;
+            button_forward.Background = Brushes.LightGray;
+            button_backward.Background = Brushes.LightGray;
+            button_left.Background = Brushes.LightGray;
+            button_right.Background = Brushes.LightGray;
+        }
+
+        private void button_right_Copy_Checked(object sender, RoutedEventArgs e)
+        {
+            label_sensor_onoff.Content = "ON";
+            label_sensor_onoff.Background = Brushes.LawnGreen;
+        }
+
+        private void button_right_Copy_Unchecked(object sender, RoutedEventArgs e)
+        {
+            label_sensor_onoff.Content = "OFF";
+            label_sensor_onoff.Background = Brushes.Red;
         }
     }
 }

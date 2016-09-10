@@ -12,3 +12,4 @@ C:\Users\Forward\Documents\visual studio 2015\Projects\WpfApplication1\WpfApplic
 C:\Users\Forward\Documents\visual studio 2015\Projects\WpfApplication1\WpfApplication1\obj\Debug\BBRobot_UI.csproj.GenerateResource.Cache
 C:\Users\Forward\Documents\visual studio 2015\Projects\WpfApplication1\WpfApplication1\obj\Debug\BBRobot_UI.exe
 C:\Users\Forward\Documents\visual studio 2015\Projects\WpfApplication1\WpfApplication1\obj\Debug\BBRobot_UI.pdb
+C:\Users\Forward\Documents\visual studio 2015\Projects\WpfApplication1\WpfApplication1\obj\Debug\BBRobot_UI.csprojResolveAssemblyReference.cache
