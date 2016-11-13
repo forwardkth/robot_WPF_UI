@@ -16,3 +16,15 @@ C:\Users\Forward\Documents\visual studio 2015\Projects\WpfApplication1\WpfApplic
 E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\bin\Debug\BBRobot_UI.exe.config
 E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI.exe
 E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI.pdb
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\bin\Debug\BBRobot_UI.exe
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\bin\Debug\BBRobot_UI.pdb
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI.csprojResolveAssemblyReference.cache
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\MainWindow.g.cs
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\App.g.cs
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI_MarkupCompile.cache
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI_MarkupCompile.lref
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\MainWindow.baml
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\Resource.baml
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI.g.resources
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI.Properties.Resources.resources
+E:\project\robot_WPF_UI\BBRobot_UI\WpfApplication1\obj\Debug\BBRobot_UI.csproj.GenerateResource.Cache
