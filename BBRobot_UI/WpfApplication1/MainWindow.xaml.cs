@@ -25,8 +25,14 @@ namespace BBRrobotUI
     public partial class MainWindow : Window
     {
         private Socket client;
+        private Socket client2;
         private IPEndPoint ipe;
+        private IPEndPoint ipe2;
         private int motion;
+        private byte[] recvBytes = new byte[60];
+        private string recvStr = "";
+        private int bytes;
+        private Thread Revthread;
 
         public MainWindow()
         {
@@ -35,11 +41,6 @@ namespace BBRrobotUI
 
         private void AsynTCPConnect()
         {
-            if (textbox_TCPIP.Text == string.Empty || textbox_TCPPORT.Text == string.Empty)
-            {
-                MessageBox.Show("Please input server address and port!");
-            }
-
              ipe = new IPEndPoint(IPAddress.Parse(textbox_TCPIP.Text), Int32.Parse(textbox_TCPPORT.Text));
             //创建套接字
              client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -62,6 +63,22 @@ namespace BBRrobotUI
             }
         }
 
+        public void TCPRev()
+        {
+            while(true)
+            {
+                ipe2 = new IPEndPoint(IPAddress.Parse("192.168.1.79"), Int32.Parse("2003"));
+                //创建套接字
+                client2 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                client2.Connect(ipe2);
+                if (client2 == null) return;
+                bytes = client2.Receive(recvBytes, recvBytes.Length, 0);
+                Console.WriteLine("data num：" + bytes);
+                recvStr = Encoding.ASCII.GetString(recvBytes, 0, bytes);
+                Console.WriteLine("sensor data received：" + recvStr);
+                client2.Close();              
+            }
+        }
         public void TCPSend()
         {
             byte[] data;
@@ -572,12 +589,37 @@ namespace BBRrobotUI
         {
             label_sensor_onoff.Content = "ON";
             label_sensor_onoff.Background = Brushes.LawnGreen;
+            
+            Revthread = new Thread(new ThreadStart(TCPRev));
+            Revthread.Start();
+            Thread.Sleep(500);
+
+            if (client2 != null)
+            {
+                textbox_TCP_Copy.Dispatcher.Invoke(new Action(() =>
+                {
+                    textbox_TCP_Copy.Text = "Connected!";
+                    textbox_TCP_Copy.Background = Brushes.Green;
+                }));
+            }
+            else
+            {
+                textbox_TCP_Copy.Dispatcher.Invoke(new Action(() =>
+                {
+                    textbox_TCP_Copy.Text = "failed!";
+                    textbox_TCP_Copy.Background = Brushes.Red;
+                }));
+            }
+
+
         }
 
         private void button_right_Copy_Unchecked(object sender, RoutedEventArgs e)
         {
             label_sensor_onoff.Content = "OFF";
             label_sensor_onoff.Background = Brushes.Red;
+            client2.Disconnect(true);
+            client2.Close();
         }
     }
 }

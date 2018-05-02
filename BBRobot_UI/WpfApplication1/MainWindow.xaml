@@ -63,11 +63,11 @@
         <ToggleButton x:Name="button_laser" Content="Laser Shooting" HorizontalAlignment="Left" Margin="215,820,0,-69" VerticalAlignment="Top" Width="120" Height="40"
                       Checked="button_laser_Checked"
                       Unchecked="button_laser_Unchecked"/>
-        <ToggleButton x:Name="button_right_Copy1" Content="Autodrive" HorizontalAlignment="Left" Margin="28,820,0,-69" VerticalAlignment="Top" Width="115" Height="40"/>
-        <Label x:Name="label_motion_Copy4" Content="OFF" HorizontalAlignment="Left" Margin="148,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
-        <Label x:Name="label_laser" Content="OFF" HorizontalAlignment="Left" Margin="340,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
-        <ToggleButton x:Name="button_right_Copy2" Content="Image processing" HorizontalAlignment="Left" Margin="407,820,0,-69" VerticalAlignment="Top" Width="120" Height="40"/>
-        <Label x:Name="label_motion_Copy6" Content="OFF" HorizontalAlignment="Left" Margin="532,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
+        <ToggleButton x:Name="button_right_Copy1" Content="Autodrive" HorizontalAlignment="Left" Margin="18,820,0,-69" VerticalAlignment="Top" Width="115" Height="40"/>
+        <Label x:Name="label_motion_Copy4" Content="OFF" HorizontalAlignment="Left" Margin="144,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
+        <Label x:Name="label_laser" Content="OFF" HorizontalAlignment="Left" Margin="344,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
+        <ToggleButton x:Name="button_right_Copy2" Content="Image processing" HorizontalAlignment="Left" Margin="415,820,0,-69" VerticalAlignment="Top" Width="120" Height="40"/>
+        <Label x:Name="label_motion_Copy6" Content="OFF" HorizontalAlignment="Left" Margin="544,827,0,-62" VerticalAlignment="Top" Width="62" Background="Red"/>
         <Label x:Name="label_ultrasound_Copy" Content="Battery Life：" HorizontalAlignment="Left" Margin="635,759,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="2.45,2.231"/>
         <TextBox x:Name="textbox_TCPPORT_Copy" HorizontalAlignment="Left" Height="23" Margin="721,762,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
         <Label x:Name="label_ultrasound_Copy1" Content="%" HorizontalAlignment="Left" Margin="792,760,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.45,2.231" Height="25"/>
@@ -75,8 +75,11 @@
         <Label x:Name="label_ultrasound_Copy3" Content="℃" HorizontalAlignment="Left" Margin="833,690,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="2.45,2.231" Height="26"/>
         <Label x:Name="label_ultrasound_Copy4" Content="cm" HorizontalAlignment="Left" Margin="380,720,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="2.45,2.231" Height="25"/>
         <TextBox x:Name="textbox_TCP" HorizontalAlignment="Left" Height="25" Margin="794,544,0,0" TextWrapping="Wrap" Text="Disconnected" VerticalAlignment="Top" Width="80" Background="Red"/>
-        <ToggleButton x:Name="button_sensor" Content="Sensor" HorizontalAlignment="Left" Margin="637,820,0,-69" VerticalAlignment="Top" Width="86" Height="40" Checked="button_right_Copy_Checked" Unchecked="button_right_Copy_Unchecked"/>
-        <Label x:Name="label_sensor_onoff" Content="OFF" HorizontalAlignment="Left" Margin="730,823,0,-63" VerticalAlignment="Top" Width="77" Background="Red" Height="31"/>
+        <ToggleButton x:Name="button_sensor" Content="SensorData" HorizontalAlignment="Left" Margin="635,820,0,-69" VerticalAlignment="Top" Width="86" Height="40" Checked="button_right_Copy_Checked" Unchecked="button_right_Copy_Unchecked"/>
+        <Label x:Name="label_sensor_onoff" Content="OFF" HorizontalAlignment="Left" Margin="728,823,0,-63" VerticalAlignment="Top" Width="77" Background="Red" Height="31"/>
+        <TextBox x:Name="textbox_TCPIP_Copy" HorizontalAlignment="Left" Height="24" Margin="632,569,0,0" TextWrapping="Wrap" Text="192.168.1.79" VerticalAlignment="Top" Width="86"/>
+        <TextBox x:Name="textbox_TCPPORT_Copy1" HorizontalAlignment="Left" Height="24" Margin="717,569,0,0" TextWrapping="Wrap" Text="2003" VerticalAlignment="Top" Width="77"/>
+        <TextBox x:Name="textbox_TCP_Copy" HorizontalAlignment="Left" Height="25" Margin="794,566,0,0" TextWrapping="Wrap" Text="Disconnected" VerticalAlignment="Top" Width="80" Background="Red"/>
 
     </Grid>
 </Window>
