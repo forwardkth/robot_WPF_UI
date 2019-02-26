@@ -436,8 +436,13 @@ namespace BBRrobotUI
 
         private void button_videostream_Click(object sender, RoutedEventArgs e)
         {
-            BrowerFPV.Navigate(textbox_videoaddress.Text);
-            // "http://192.168.1.79:8080/javascript_simple.html"  
+            mpeg_camera.Navigate(textbox_videoaddress.Text);
+            // "http://192.168.1.78:8080/javascript_simple.html"  
+        }
+
+        private void button_rosvideostream_Click(object sender, RoutedEventArgs e)
+        {
+            chrome.Load(textbox_videoaddress_ros.Text);
         }
 
         private void button_laser_Checked(object sender, RoutedEventArgs e)
@@ -620,6 +625,11 @@ namespace BBRrobotUI
             label_sensor_onoff.Background = Brushes.Red;
             client2.Disconnect(true);
             client2.Close();
+        }
+
+        private void textbox_TCPIP_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,11 @@
+﻿*.suo
+*.dll
+*.pak
+*.bin
+*.nupkg
+*.p7s
+*.props
+*.pdb
+BBRobot_UI/packages/
+BBRobot_UI/WpfApplication1/obj/
+BBRobot_UI/WpfApplication1/bin/
